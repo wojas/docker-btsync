@@ -1,5 +1,5 @@
 { 
-  "device_name": "My Sync Device",
+  "device_name": "HOSTNAME",
   "listening_port" : 55555,                       // 0 - randomize port
 
 /* storage_path dir contains auxilliary app files
@@ -7,7 +7,7 @@
    where binary is located.
    otherwise user-defined directory will be used 
 */
-  "storage_path" : "/srv/btsync/.sync",
+  "storage_path" : "/btsync/.sync",
 
 // uncomment next line if you want to set location of pid file
 // "pid_file" : "/var/run/btsync/btsync.pid",
@@ -27,7 +27,9 @@
 */
   "webui" :
   {
+    /*
     "listen" : "0.0.0.0:8888",
+    */
     "login" : "admin",
     "password" : "password"
   }
@@ -36,14 +38,13 @@
    shared directories specified in config file
    override the folders previously added from WebUI.
 */
-/*
   ,
   "shared_folders" :
   [
     {
 //  use --generate-secret in command line to create new secret
-      "secret" : "MY_SECRET_1",                   // * required field
-      "dir" : "/home/user/bittorrent/sync_test", // * required field
+      "secret" : "SECRET",                   // * required field
+      "dir" : "/btsync", // * required field
 
 //  use relay server when direct connection fails
       "use_relay_server" : true,
@@ -55,11 +56,10 @@
 //  specify hosts to attempt connection without additional search     
       "known_hosts" :
       [
-        "192.168.1.2:44444"
+	KNOWN_HOST
       ]
     }
   ]
-*/
 
 // Advanced preferences can be added to config file.
 // Info is available in BitTorrent Sync User Guide.
